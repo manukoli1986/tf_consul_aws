@@ -1,3 +1,3 @@
 #Ignore terraform plugin directory
-consul_aws/.terraform/terraform.tfstate
+/consul_aws/.terraform/terraform.tfstate
 test
