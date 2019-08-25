@@ -1,5 +1,5 @@
 resource "aws_security_group" "consul_internet_access" {
-  name   = "consul_internet_access"
+  name        = "consul_internet_access"
   description = "Security group for Consul - Internet access"
 
   vpc_id = "${aws_vpc.consul.id}"
@@ -46,10 +46,10 @@ resource "aws_security_group" "consul_internet_access" {
 
   # Outbound to Internet to install Docker Images?
   egress {
-      from_port = 0
-      to_port = 0
-      protocol = "-1"
-      cidr_blocks = ["0.0.0.0/0"]
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
   }
 
   tags = {
@@ -61,7 +61,7 @@ resource "aws_security_group" "consul_internet_access" {
 }
 
 resource "aws_security_group" "consul" {
-  name   = "consul_cluster_communications"
+  name        = "consul_cluster_communications"
   description = "Security group for Consul cluster communications"
 
   vpc_id = "${aws_vpc.consul.id}"
@@ -108,10 +108,10 @@ resource "aws_security_group" "consul" {
 
   # Outbound to Internet to install Docker Images?
   egress {
-      from_port = 0
-      to_port = 0
-      protocol = "-1"
-      cidr_blocks = ["0.0.0.0/0"]
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
   }
 
   tags = {

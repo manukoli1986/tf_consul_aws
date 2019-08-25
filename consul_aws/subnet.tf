@@ -31,24 +31,24 @@ resource "aws_subnet" "consul_1" {
 }
 
 resource "aws_route_table" "consul_1" {
-    vpc_id = "${aws_vpc.consul.id}"
+  vpc_id = "${aws_vpc.consul.id}"
 
-    route {
-        cidr_block = "0.0.0.0/0"
-        gateway_id = "${aws_internet_gateway.consul.id}"
-    }
+  route {
+    cidr_block = "0.0.0.0/0"
+    gateway_id = "${aws_internet_gateway.consul.id}"
+  }
 
-    tags = {
-      Owner       = "${var.owner}"
-      Terraform   = true
-      Environment = "${var.environment}"
-      Name        = "tf-route-table-consul-1"
-    }
+  tags = {
+    Owner       = "${var.owner}"
+    Terraform   = true
+    Environment = "${var.environment}"
+    Name        = "tf-route-table-consul-1"
+  }
 }
 
 resource "aws_route_table_association" "consul_1" {
-    subnet_id      = "${aws_subnet.consul_1.id}"
-    route_table_id = "${aws_route_table.consul_1.id}"
+  subnet_id      = "${aws_subnet.consul_1.id}"
+  route_table_id = "${aws_route_table.consul_1.id}"
 }
 
 resource "aws_subnet" "consul_2" {
@@ -66,24 +66,24 @@ resource "aws_subnet" "consul_2" {
 }
 
 resource "aws_route_table" "consul_2" {
-    vpc_id = "${aws_vpc.consul.id}"
+  vpc_id = "${aws_vpc.consul.id}"
 
-    route {
-        cidr_block = "0.0.0.0/0"
-        gateway_id = "${aws_internet_gateway.consul.id}"
-    }
+  route {
+    cidr_block = "0.0.0.0/0"
+    gateway_id = "${aws_internet_gateway.consul.id}"
+  }
 
-    tags = {
-      Owner       = "${var.owner}"
-      Terraform   = true
-      Environment = "${var.environment}"
-      Name        = "tf-route-table-consul-2"
-    }
+  tags = {
+    Owner       = "${var.owner}"
+    Terraform   = true
+    Environment = "${var.environment}"
+    Name        = "tf-route-table-consul-2"
+  }
 }
 
 resource "aws_route_table_association" "consul_2" {
-    subnet_id      = "${aws_subnet.consul_2.id}"
-    route_table_id = "${aws_route_table.consul_2.id}"
+  subnet_id      = "${aws_subnet.consul_2.id}"
+  route_table_id = "${aws_route_table.consul_2.id}"
 }
 
 resource "aws_subnet" "consul_3" {
@@ -101,22 +101,22 @@ resource "aws_subnet" "consul_3" {
 }
 
 resource "aws_route_table" "consul_3" {
-    vpc_id = "${aws_vpc.consul.id}"
+  vpc_id = "${aws_vpc.consul.id}"
 
-    route {
-        cidr_block = "0.0.0.0/0"
-        gateway_id = "${aws_internet_gateway.consul.id}"
-    }
+  route {
+    cidr_block = "0.0.0.0/0"
+    gateway_id = "${aws_internet_gateway.consul.id}"
+  }
 
-    tags = {
-      Owner       = "${var.owner}"
-      Terraform   = true
-      Environment = "${var.environment}"
-      Name        = "tf-route-table-consul-3"
-    }
+  tags = {
+    Owner       = "${var.owner}"
+    Terraform   = true
+    Environment = "${var.environment}"
+    Name        = "tf-route-table-consul-3"
+  }
 }
 
 resource "aws_route_table_association" "consul_3" {
-    subnet_id      = "${aws_subnet.consul_3.id}"
-    route_table_id = "${aws_route_table.consul_3.id}"
+  subnet_id      = "${aws_subnet.consul_3.id}"
+  route_table_id = "${aws_route_table.consul_3.id}"
 }
