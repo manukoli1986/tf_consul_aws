@@ -1,4 +1,4 @@
-# Automate the creation of a Consul cluster using terrafrom
+# Automate the provision of a Consul cluster using terrafrom
 
 1. We have used AWS for hosting our solution
 2. For operating our infrastructure we have setup a HA Consul cluster distributed over at least 3
