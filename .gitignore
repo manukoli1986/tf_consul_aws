@@ -1,4 +1,4 @@
 #Ignore terraform plugin directory
+.gitignore
 /consul_aws/.terraform*
-/consul_aws/instances-working-with-elb
-/consul_aws/instances-tf-working
+/consul_aws/instances-*
