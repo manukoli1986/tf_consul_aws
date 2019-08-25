@@ -97,3 +97,34 @@ resource "aws_instance" "consul_server_3" {
     Name        = "consul-server-3"
   }
 }
+
+# Public Frontend ELB
+resource "aws_elb" "consulelb" {
+  name 		  = "elb-public-frontend"
+  subnets         = ["${aws_subnet.consul_1.id}", "${aws_subnet.consul_2.id}", "${aws_subnet.consul_3.id}"]
+  security_groups = ["${aws_security_group.consul.id}", "${aws_security_group.consul_internet_access.id}"]
+#  instances       = ["${aws_instance.consul_server_1[count.index].id}", "${aws_instance.consul_server_2[count.index].id}", "${aws_instance.consul_server_3[count.index].id}"]
+
+  listener {
+    instance_port     = 8500
+    instance_protocol = "tcp"
+    lb_port           = 8500
+    lb_protocol       = "http"
+  }
+  
+  health_check {
+    healthy_threshold   = 2
+    unhealthy_threshold = 2
+    timeout             = 3
+    target              = "HTTP:8500/ui"
+    interval            = 30
+  }
+}
+
+resource "aws_elb_attachment" "consulelb" {
+	count = 2 
+	elb      = "${aws_elb.consulelb}"
+#	instance = "${element(aws_instance.consul_server_1.*, count.index)}"
+        instance = "${aws_instance.consul_server_1[count.index].id}"
+}
+
