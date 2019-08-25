@@ -1,4 +1,0 @@
-#Ignore terraform plugin directory
-.gitignore
-/consul_aws/.terraform*
-/consul_aws/instances-*
