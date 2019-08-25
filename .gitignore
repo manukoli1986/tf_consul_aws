@@ -1,2 +1,4 @@
 #Ignore terraform plugin directory
 /consul_aws/.terraform*
+/consul_aws/instances-working-with-elb
+/consul_aws/instances-tf-working
