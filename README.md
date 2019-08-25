@@ -1,4 +1,4 @@
-# Automate the provision of a Consul cluster using terrafrom
+# Automate the provision of a Consul cluster using terraform
 
 1. We have used AWS for hosting our solution
 2. For operating our infrastructure we have setup a HA Consul cluster distributed over at least 3
@@ -12,7 +12,7 @@
 > I have also faced some issue during the code creation. Hope it may help you when you do it at your end. 
 
 * Let's start !!!
-1. Setup your AWS account and get Access and Secret key and integrate it with "aws cli configure" command. So that terrafrom can start contacting with cloud provider via cli mode.
+1. Setup your AWS account and get Access and Secret key and integrate it with "aws cli configure" command. So that terraform can start contacting with cloud provider via cli mode.
 2. Below are the listed file which consist code of deploying consul cluster which will be provisioned on EC2 (t2.micro). I am running consul on container to save my time and joining rest of the nodes as well using EC2's private IP.
 instances.tf  -- Instance specifications
 main.tf -- Executioner file
@@ -32,7 +32,7 @@ vpc.tf -- File to create isolated consul cluster space
 3. You will find below output once command is executed. 
 
 ```$xslt
-#terrafrom init
+#terraform init
 Initializing modules...
 - frontend in instance
 
@@ -52,7 +52,7 @@ suggested below.
 
 # terraform plan -- (To check code is valid and can be executed without any failures)
 
-# terrafrom apply -auto-approve  --  (Command to execute code with auto-approve comment)
+# terraform apply -auto-approve  --  (Command to execute code with auto-approve comment)
 aws_vpc.consul: Creating...
 aws_key_pair.mayank-user: Creating...
 aws_vpc.consul: Still creating... [10s elapsed]
@@ -147,7 +147,7 @@ CONTAINER ID        IMAGE                           COMMAND                  CRE
 
 ## Issues I have faced so far.
 
-1. Terrafrom- connection - host name issue.
+1. Terraform- connection - host name issue.
 Fixed by giving complete information of host.
     connection {
       host        = "${self.public_ip}"
